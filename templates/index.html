@@ -1,0 +1,200 @@
+<!DOCTYPE  html>
+{% load staticfiles %}
+<html>
+    
+    <head>
+        <link rel="stylesheet"  type="text/css"  href="{% static 'Resources/CSS/style.cssss'%}">
+        <link rel="stylesheet" type="text/css" href="{% static 'Vendors/CSS/normalize.css'%}">
+        <link rel="stylesheet" type="text/css" href="{% static 'Vendors/CSS/grid.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'Vendors/CSS/ionicons.min.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'Resources/CSS/query.css' %}">
+        <link rel="stylesheet" type="text/css" href="{% static 'Vendors/CSS/animate.css' %}">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400&display=swap" rel="stylesheet" type="text/css">
+        <title>Bio-Bytes</title>
+    
+    </head>
+
+    <body id="headerjs">    
+        <header>
+            <nav>
+                <div class="row">
+                    <img src="{% static 'Resources/Img/final-logo.png'%}" alt="Biobytes logo" class="logo">
+                    <a href="#headerjs"><img src="{% static 'Resources/Img/logo-white.png'%}" alt="Biobytes White logo" class="whitelogo"></a>
+                    <ul class="main-nav">
+                        <li><a href="#team">Our Team</a></li>
+                        <li><a href="#events">Events</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
+                        <li><a href="#join">Join Us</a></li>
+                    </ul>
+                </div>
+
+            
+            </nav>
+            <div class="main-header-text">
+                <h1>BioBytes</h1>
+                <br>
+                <h2>The  Computational Biology Club of IIIT-Delhi</h2>
+                <br>
+        
+                <a class="btn btn-full" href="#">Join Us!</a>
+                <a class="btn btn-ghost" href="#">Know More</a> 
+
+            </div>
+        
+        </header>
+        
+        <section class="section-events js--section-events" id="events">
+            <div class="row">
+                <h2>EVENTS</h2>    
+            </div>
+            
+            <div class="row">
+           
+                {% for event in events.all %}
+                <div class="col span-1-of-3 js--wp-1">
+                    <h3>{{ event.primary_heading }}</h3>
+                    <img src="{{ event.event_image.url }}">
+                    <div class="event-description">
+                        <h4>{{ event.secondary_heading }}</h4>
+                        <p>{{ event.event_description|linebreaks }}</p>
+                    </div>
+                </div>
+                {% endfor %}
+
+                
+                
+                
+            </div>
+        </section>
+    
+        <section class="section-newsletter" id="newsletter">
+            <div class="row">
+                <h2>NEWSLETTER</h2>
+                <h3>A fortnightly newsletter</h3>
+            </div>
+            <div class="row about-newsletter">
+                <p>We will publish our newsletter 'BioBits' fortnightly. We will send it to 
+                    <u><em>students@iiitd.ac.in</em></u> in digital format and will put up a printed version on 
+                    notice boards. 
+                    The content will largely pertain to the advancements in computational biology 
+                    domain and important things happening in the CCB dept. of our college. We 
+                    will attach resources for further reading and in some issues we might also 
+                    include link to a problem (Rosalind's bioinformatics stronghold is a good 
+                    resource). We shall consult with the professors and seniors for topics to 
+                    include in every issue.<br><br>Download this months's newsletter from here:<br><br></p>
+                    <a class="btn btn-full" href="#">Download</a>
+
+            </div>
+        
+        </section>
+        
+        <section class="section-team" id="team">
+            <div class="row">
+                <h2>OUR TEAM</h2>
+                <p>Meet the people behind the smooth functioning of BioBytes.</p>
+            </div>
+            <div class="row members">
+            {% with i=0 %}  
+              {% for member in members.all %}
+                
+                <div class="col span-1-of-6">
+                    <img src="{{ member.member_image.url }}" alt="Bhavay Aggarwal">
+                    <h3>{{member.member_name}}</h3>
+                </div>
+                {% endfor %}
+            {% endwith %}
+            </div>
+            <div class="row members">
+                <div class="col span-1-of-6 unknown">
+                    <img src="{% static 'Resources/Img/unknown_girl.png'%}" alt="Unknown">
+                    <h3>Want to be here?</h3>
+                </div>
+                <div class="col span-1-of-6">
+                    <img src="{% static 'Resources/Img/prutyay.jpg'%}" alt="Prutyay Gautam">
+                    <h3>Prutyay Gautam</h3>
+                </div>
+                <div class="col span-1-of-6">
+                    <img src="{% static 'Resources/Img/ria.jpg'%}" alt="Ria Gupta">
+                    <h3>Ria Gupta</h3>
+                </div>
+                <div class="col span-1-of-6">
+                    <img src="{% static 'Resources/Img/ritvik.jpg'%}" alt="Ritvik Gupta">
+                    <h3>Ritvik Gupta</h3>
+                </div>
+                <div class="col span-1-of-6">
+                    <img src="{% static 'Resources/Img/juhi.jpg'%}" alt="Juhi Pandey">
+                    <h3>Juhi Pandey</h3>
+                </div>
+                <div class="col span-1-of-6 unknown">  
+                    <img src="{% static 'Resources/Img/unknown_boy.png'%}" alt="Unknown">
+                    <h3>Want to be here?</h3>
+                </div>
+            </div>
+
+            <div class="row members">
+                <div class="col span-1-of-6 unknown">
+                    <img src="{% static 'Resources/Img/unknown_girl.png'%}" alt="Unknown">
+                    <h3>Want to be here?</h3>
+                </div>
+                <div class="col span-1-of-6 unknown">
+                    <img src="{% static 'Resources/Img/unknown_boy.png'%}" alt="Unknown">
+                    <h3>Want to be here?</h3>
+
+                </div>
+                <div class="col span-1-of-6">
+                    <img src="{% static 'Resources/Img/anmol.jpg'%}" alt="Anmol">
+                    <h3>Anmol</h3>
+                </div>
+                <div class="col span-1-of-6">
+                    <img src="{% static 'Resources/Img/shekhar.jpg'%}" alt="Shekhar">
+                    <h3>Shekhar</h3>
+                </div>
+                <div class="col span-1-of-6 unknown">
+                    <img src="{% static 'Resources/Img/unknown_girl.png'%}" alt="Unknown">
+                    <h3>Want to be here?</h3>                
+                </div>
+                <div class="col span-1-of-6 unknown">  
+                    <img src="{% static 'Resources/Img/unknown_boy.png'%}" alt="Unknown">
+                    <h3>Want to be here?</h3>
+                </div>
+
+            </div>
+
+            
+        </section>
+     
+        
+        <footer>
+            <div class="row">
+                <div class="col span-1-of-2">
+                    <ul class="footer-nav">
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">Report Bug</a></li>
+                        <li><a href="#">Contribute</a></li>
+                    </ul>
+                </div>
+                <div class="col span-1-of-2">
+                    <ul class="social-links">
+                        <li><a href="#"><i class="ion-social-facebook"></i></a></li>
+                        <li><a href="#"><i class="ion-social-twitter"></i></a></li>
+                        <li><a href="#"><i class="ion-social-googleplus"></i></a></li>
+                        <li><a href="#"><i class="ion-social-instagram"></i></a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <p>
+                    Copyright &copy; 2019 by BioBytes. All rights reserved.
+                </p>
+            </div>
+        
+        </footer>
+        
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script src="{% static 'Vendors/JS/jquery.waypoints.min.js' %}"></script>
+        <script src="{% static 'Resources/JS/scripts.js' %}"></script>
+        
+    </body>
+
+
+</html>
